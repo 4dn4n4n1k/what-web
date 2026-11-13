@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+  <title>WHAT API</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none"><path d="M4 18.5 9.1 7l4.8 14 4.2-10 2.1 5.2H24" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>WHAT API</strong><small>Endpoint intelligence</small></span>
+      </div>
+      <span id="status" class="status"><i></i> Ready</span>
+    </header>
+
+    <section class="target-card">
+      <div class="section-label">CURRENT TARGET</div>
+      <div class="target-line"><span class="target-dot"></span><span id="target">Loading current tab…</span></div>
+    </section>
+
+    <section class="metrics" aria-label="Scan statistics">
+      <div class="metric"><strong id="total">0</strong><span>Endpoints</span></div>
+      <div class="metric"><strong id="observed">0</strong><span>Observed</span></div>
+      <div class="metric"><strong id="static">0</strong><span>Static refs</span></div>
+    </section>
+
+    <div class="scan-controls">
+      <label class="toggle"><input type="checkbox" id="thirdParty"><span class="toggle-track"></span><span>Include third-party requests</span></label>
+      <button id="start" class="button button-primary"><span class="button-icon">↗</span> Start deep scan</button>
+      <button id="stop" class="button button-stop" disabled>Stop scan</button>
+    </div>
+
+    <div class="utility-actions">
+      <button id="copy" class="button button-quiet"><span aria-hidden="true">▣</span> Copy endpoints</button>
+      <button id="export" class="button button-quiet"><span aria-hidden="true">↓</span> Export JSON</button>
+    </div>
+
+    <button id="dashboard" class="dashboard-link">Open full dashboard <span aria-hidden="true">↗</span></button>
+    <div class="footer-note"><span class="shield">◇</span><span>Passive discovery only. No endpoint probing.</span></div>
+    <div id="message" role="status" aria-live="polite"></div>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

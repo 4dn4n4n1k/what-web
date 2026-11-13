@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WHAT API · Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="#" aria-label="WHAT API home">
+      <span class="brand-mark"><svg viewBox="0 0 28 28" fill="none"><path d="M4 18.5 9.1 7l4.8 14 4.2-10 2.1 5.2H24" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><b>WHAT API</b><small>Endpoint intelligence</small></span>
+    </a>
+    <div class="header-right"><span class="workspace-label">LOCAL WORKSPACE</span><button id="refresh" class="refresh-button"><span>↻</span> Refresh data</button></div>
+  </header>
+
+  <main class="workspace">
+    <section class="page-heading">
+      <div><div class="eyebrow">RECONNAISSANCE / ENDPOINT INVENTORY</div><h1>API inventory</h1><p>A consolidated view of endpoints discovered in the active website.</p></div>
+      <div class="heading-mark">01 <span>/</span> INVENTORY</div>
+    </section>
+
+    <section class="overview-panel">
+      <div class="target-block">
+        <span class="field-label">SCAN TARGET</span>
+        <h2 id="target">No scan data yet</h2>
+        <p id="updated">Start a scan from the extension popup.</p>
+      </div>
+      <div class="overview-metrics">
+        <div class="overview-metric"><span class="field-label">TOTAL ENDPOINTS</span><b id="count">0</b></div>
+        <div class="overview-metric"><span class="field-label">OBSERVED</span><b id="observed">0</b></div>
+        <div class="overview-metric"><span class="field-label">JS ASSETS</span><b id="assets">0</b></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Inventory views">
+      <button class="tab active" data-tab="endpoints"><span class="tab-index">01</span> Endpoints</button>
+      <button class="tab" data-tab="assets"><span class="tab-index">02</span> JavaScript sources</button>
+      <button class="tab" data-tab="routes"><span class="tab-index">03</span> Routes</button>
+    </nav>
+
+    <section class="content-panel">
+      <div class="toolbar">
+        <div class="toolbar-title"><h3 id="viewTitle">Discovered endpoints</h3><span id="viewCount" class="result-count">0 records</span></div>
+        <div class="filters"><label class="search-box"><span>⌕</span><input id="search" placeholder="Search inventory…" aria-label="Search inventory"></label><select id="source" aria-label="Filter by evidence"><option value="">All evidence</option><option value="browser_network">Browser network</option><option value="page_runtime">Page runtime</option><option value="static_ast">AST analysis</option><option value="static_javascript">Regex fallback</option></select><button id="copyAll" class="action-button">Copy visible</button><button id="download" class="action-button action-primary">Export JSON <span>↓</span></button></div>
+      </div>
+      <section id="endpointView">
+        <div class="table-wrap"><table><thead><tr><th class="col-method">METHOD</th><th>ENDPOINT</th><th class="col-type">TYPE</th><th class="col-evidence">EVIDENCE</th><th class="col-confidence">CONFIDENCE</th></tr></thead><tbody id="rows"><tr><td colspan="5" class="empty">No endpoints discovered yet.</td></tr></tbody></table></div>
+      </section>
+      <section id="assetView" hidden><ul id="assetList" class="resource-list"></ul></section>
+      <section id="routeView" hidden><ul id="routeList" class="resource-list"></ul></section>
+    </section>
+
+    <footer class="page-footer"><span class="footer-symbol">◇</span><p><strong>Evidence, not assumptions.</strong> Static references are leads, not proof that an endpoint exists or is accessible. WHAT API performs passive discovery only.</p><span class="version">WHAT API / 1.1</span></footer>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

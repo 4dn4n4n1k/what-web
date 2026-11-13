@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "WHAT API",
+  "version": "1.1.0",
+  "description": "Intelligent API endpoint discovery with AST-based JavaScript analysis and runtime evidence.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "action": {
+    "default_title": "WHAT API",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content/page-bridge-main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "vendor/acorn.js",
+        "engines/ast-analyzer.js",
+        "content/content.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+  "options_page": "dashboard/dashboard.html"
+}

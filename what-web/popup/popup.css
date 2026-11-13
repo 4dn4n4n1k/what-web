@@ -1,0 +1,53 @@
+:root{
+  color-scheme:dark;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#101714;color:#edf3ef;
+  --bg:#101714;--panel:#171f1b;--line:#2a3730;--muted:#91a097;
+  --text:#edf3ef;--accent:#8bd6ae;--accent-strong:#b3edca;
+}
+*{box-sizing:border-box}
+body{margin:0;width:360px;background:var(--bg);-webkit-font-smoothing:antialiased}
+button{font:inherit}
+.app{padding:19px 19px 14px}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.brand-lockup{display:flex;align-items:center;gap:10px}
+.brand-mark{width:36px;height:36px;display:grid;place-items:center;border:1px solid #345342;border-radius:10px;background:#1b3025;color:#a0e0ba}
+.brand-mark svg{width:24px;height:24px}
+.brand-copy strong{display:block;font-size:13px;letter-spacing:.13em;font-weight:750}
+.brand-copy small{display:block;margin-top:3px;color:#8e9d94;font-size:10px;letter-spacing:.025em}
+.status{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid #34453a;border-radius:30px;color:#b8c8bd;font-size:10px;font-weight:600}
+.status i{width:6px;height:6px;border-radius:50%;background:#87a18f}
+.target-card{padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(135deg,#1a241e,#151d19)}
+.section-label{font-size:9px;font-weight:700;letter-spacing:.13em;color:#8c9d92}
+.target-line{display:flex;align-items:center;gap:8px;margin-top:9px;min-width:0}
+.target-dot{width:7px;height:7px;flex:none;border-radius:50%;background:#82d5a5;box-shadow:0 0 0 3px #284333}
+#target{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-weight:600;color:#e3ece6}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);padding:19px 3px 17px;border-bottom:1px solid #27332c}
+.metric{display:flex;flex-direction:column;align-items:center;gap:4px;border-right:1px solid #2b3830}
+.metric:last-child{border:0}
+.metric strong{font-size:25px;line-height:1.1;font-weight:650;letter-spacing:-.04em;color:#e7f0e9;font-variant-numeric:tabular-nums}
+.metric span{font-size:10px;color:#8f9f95}
+.scan-controls{padding-top:15px}
+.toggle{display:flex;align-items:center;gap:9px;margin-bottom:13px;color:#aebdb3;font-size:11px;cursor:pointer}
+.toggle input{position:absolute;opacity:0;width:1px;height:1px}
+.toggle-track{position:relative;width:27px;height:15px;flex:none;border-radius:20px;background:#39463e;transition:background .18s}
+.toggle-track:after{content:"";position:absolute;width:11px;height:11px;top:2px;left:2px;border-radius:50%;background:#d6e0d9;transition:transform .18s}
+.toggle input:checked+.toggle-track{background:#4b9d70}
+.toggle input:checked+.toggle-track:after{transform:translateX(12px);background:white}
+.toggle input:focus-visible+.toggle-track{outline:2px solid #9cdbb4;outline-offset:3px}
+.button{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:39px;border-radius:8px;font-size:11px;font-weight:650;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.button:active{transform:translateY(1px)}
+.button-primary{border:1px solid #a4e4bc;background:#a6e2bd;color:#112319;box-shadow:0 2px 8px #0003}
+.button-primary:hover{background:#b9edcc}
+.button-icon{font-size:15px;line-height:1}
+.button-stop{margin-top:7px;border:1px solid #3b4940;background:#202a24;color:#d5e0d8}
+.button-stop:hover:not(:disabled){background:#29372e}
+.button:disabled{opacity:.38;cursor:not-allowed}
+.utility-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.button-quiet{min-height:35px;border:1px solid #303d35;background:#171f1b;color:#c5d1c9;font-size:10px}
+.button-quiet:hover{border-color:#526b5b;background:#1d2922}
+.dashboard-link{display:flex;justify-content:center;align-items:center;gap:7px;width:100%;margin-top:13px;padding:9px;border:0;background:transparent;color:#a9dabc;font-size:11px;font-weight:600;cursor:pointer}
+.dashboard-link:hover{color:#d0f0dc}
+.footer-note{display:flex;align-items:center;justify-content:center;gap:6px;padding-top:12px;border-top:1px solid #253129;color:#819087;font-size:9px}
+.shield{font-size:12px;color:#91cba7}
+#message{min-height:14px;margin-top:7px;text-align:center;color:#a8dfba;font-size:10px;line-height:1.4}
